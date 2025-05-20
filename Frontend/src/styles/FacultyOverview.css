@@ -16,20 +16,20 @@
   --transition-speed: 0.3s;
   --font-family: 'Poppins', sans-serif;
 
-  /* Animation durations */
+  
   --animation-fast: 0.2s;
   --animation-medium: 0.5s;
   --animation-slow: 0.8s;
 }
 
-/* Base Styles */
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--light-gray);
 }
 
-/* Animation Keyframes */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -99,7 +99,7 @@ body {
   }
 }
 
-/* Overview Header */
+
 .overview-header {
   background-color: var(--white);
   padding: 20px 40px;
@@ -115,18 +115,18 @@ body {
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
-/* Faculty Overview Container and Grid styles remain unchanged */
+
 .faculty-overview-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: linear-gradient(135deg, var(--white), var(--light-gray));
   position: relative;
-  padding-bottom: 60px; /* For floating add button */
+  padding-bottom: 60px; 
   margin-right: -20px;
 }
 
-/* Faculty Grid (Initial View) */
+
 .faculty-grid {
   display: grid;
   gap: 20px;
@@ -136,7 +136,7 @@ body {
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
-/* Improved Faculty Card */
+
 .improved-grid-card {
   background-color: var(--white);
   border: 1px solid var(--border-gray);
@@ -151,7 +151,7 @@ body {
   animation-fill-mode: both;
 }
 
-/* Stagger the card animations */
+
 .improved-grid-card:nth-child(odd) {
   animation-delay: calc(var(--animation-fast) * 0.5);
 }
@@ -166,7 +166,7 @@ body {
   transform: scale(1.03);
 }
 
-/* Card Header and Title */
+
 .card-header {
   display: flex;
   align-items: center;
@@ -206,7 +206,7 @@ body {
   opacity: 1;
 }
 
-/* Card Footer */
+
 .card-footer {
   padding: 10px 15px;
   background-color: var(--light-gray);
@@ -221,7 +221,7 @@ body {
   background-color: var(--medium-gray);
 }
 
-/* Faculty Panel View (After Selection) */
+
 .faculty-panel {
   display: flex;
   flex-direction: column;
@@ -236,23 +236,23 @@ body {
   margin-bottom: 20px;
 }
 
-/* Updated Back Button Styles */
+
 .back-btn {
   position: absolute;
-  top: -60px; /* Adjusted from -65px */
+  top: -60px; 
   left: 10px;
   background: var(--primary);
   color: var(--white);
   border: none;
-  padding: 4px 8px;  /* Reduced padding */
-  border-radius: 20px;  /* Slightly smaller border radius */
+  padding: 4px 8px;  
+  border-radius: 20px;  
   display: inline-flex;
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px var(--shadow-light);
-  font-size: 0.9em;  /* Smaller font size */
-  gap: 4px;  /* Reduced gap */
+  font-size: 0.9em;  
+  gap: 4px;  
   animation: slideInFromLeft var(--animation-medium) ease-out;
 }
 
@@ -283,7 +283,7 @@ body {
   animation: slideInFromTop var(--animation-medium) ease-out;
 }
 
-/* Faculty Details Card */
+
 .faculty-details-card {
   background-color: var(--white);
   border: 1px solid var(--border-gray);
@@ -314,7 +314,7 @@ body {
   animation: slideInFromLeft var(--animation-medium) ease-out;
 }
 
-/* Improved Edit/Delete Buttons */
+
 .faculty-actions {
   display: flex;
   gap: 12px;
@@ -411,7 +411,7 @@ body {
   animation-delay: var(--animation-medium);
 }
 
-/* Schedule Name Header */
+
 .schedule-name-header {
   text-align: center;
   margin-bottom: 30px;
@@ -424,7 +424,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* Filters Card for Events */
+
 .filters-card {
   background-color: var(--white);
   padding: 20px;
@@ -488,7 +488,7 @@ body {
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
-/* Faculty Events Table */
+
 .faculty-events-grid {
   margin-bottom: 25px;
   animation: slideInFromBottom var(--animation-medium) ease-out;
@@ -532,7 +532,7 @@ body {
   transform: translateX(5px);
 }
 
-/* Export Buttons */
+
 .export-buttons {
   display: flex;
   gap: 12px;
@@ -577,7 +577,7 @@ body {
   animation: ripple 1s ease-out;
 }
 
-/* Floating Add Button */
+
 .floating-add-btn {
   position: fixed;
   bottom: 20px;
@@ -603,8 +603,7 @@ body {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Styles */
-/* Loading Overlay */
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -643,7 +642,7 @@ body {
   animation: slideInFromBottom var(--animation-medium) ease-out;
 }
 
-/* Modal Entry/Exit Animations */
+
 .modal-enter {
   animation: fadeIn var(--animation-medium) ease-out;
 }

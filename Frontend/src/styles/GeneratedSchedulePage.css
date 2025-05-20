@@ -1,4 +1,4 @@
-/* src/styles/GeneratedSchedulePage.css */
+
 
 :root {
   --primary: #2E7D32;
@@ -19,7 +19,7 @@
   --transition-med: 0.3s ease;
 }
 
-/* Global settings */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -36,7 +36,7 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* Container for the Generated Schedule Page */
+
 .Generated-schedule-container {
   width: 100%;
   padding: 24px 32px;
@@ -49,7 +49,7 @@
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Top Section: Schedule Name and Existing Schedules Dropdown */
+
 .top-section {
   background-color: var(--white);
   padding: 20px 24px;
@@ -132,7 +132,7 @@
   outline: none;
 }
 
-/* Filters Card */
+
 .filters-card {
   background-color: var(--white);
   padding: 20px 24px;
@@ -159,7 +159,7 @@
 
 
 
-/* Arrange filters in a grid (3 columns on wider screens) */
+
 .filters-row {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -206,7 +206,7 @@
   outline: none;
 }
 
-/* Export Buttons */
+
 .export-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -315,7 +315,7 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M20,2H8C6.9,2,6,2.9,6,4v12c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z M11.5,9.5c0,0.83-0.67,1.5-1.5,1.5 H9v2H7.5V7H10C10.83,7,11.5,7.67,11.5,8.5V9.5z M16.5,11.5c0,0.83-0.67,1.5-1.5,1.5h-2.5V7H15c0.83,0,1.5,0.67,1.5,1.5V11.5z M20.5,8.5H19v1h1.5V11H19v2h-1.5V7h3V8.5z M9,9.5h1v-1H9V9.5z M4,6H2v14c0,1.1,0.9,2,2,2h14v-2H4V6z M14,11.5h1v-3h-1V11.5z'/%3E%3C/svg%3E");
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 640px) {
   .export-buttons {
     justify-content: center;
@@ -328,7 +328,7 @@
   }
 }
 
-/* Schedule Table Container */
+
 .schedule-table-container {
   background-color: var(--white);
   padding: 20px 24px;
@@ -380,7 +380,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Loading Overlay */
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -411,7 +411,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Error Message Styling */
+
 .error-msg {
   color: var(--red);
   font-size: 0.9rem;
@@ -423,7 +423,7 @@
   animation: pulse 1.5s infinite;
 }
 
-/* Schedule Header */
+
 .Generated-schedule-container h1.schedule-name-header {
   font-size: 1.4rem;
   font-weight: 600;
@@ -449,7 +449,7 @@
   width: 100%;
 }
 
-/* No Schedule Container */
+
 .no-schedule-container {
   display: flex;
   flex-direction: column;
@@ -484,7 +484,7 @@
   color: var(--primary);
 }
 
-/* Media Queries for better responsiveness */
+
 @media (max-width: 768px) {
   .Generated-schedule-container {
     padding: 16px;
@@ -512,7 +512,7 @@
   }
 }
 
-/* Tooltip Styling */
+
 [data-tooltip] {
   position: relative;
   cursor: pointer;
@@ -540,7 +540,7 @@
   transform: translateX(-50%) translateY(-10px);
 }
 
-/* Skeleton Loading Effect */
+
 @keyframes shimmer {
   0% {
     background-position: -200px 0;

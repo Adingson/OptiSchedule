@@ -28,7 +28,7 @@
   object-fit: contain;
 }
 
-/* Stagger the bounce animation for each icon */
+
 .faculty-icon:nth-child(1) {
   animation-delay: 0s;
 }
@@ -59,7 +59,7 @@
   letter-spacing: 0.2px;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .faculty-icon {
     width: 25px;

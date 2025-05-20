@@ -8,12 +8,12 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
   const [endTime, setEndTime] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
   const [availableRooms, setAvailableRooms] = useState([]);
-  const [allRooms, setAllRooms] = useState({ lecture: [], lab: [] }); // Expected API structure
+  const [allRooms, setAllRooms] = useState({ lecture: [], lab: [] }); 
   const [hasOverlap, setHasOverlap] = useState(false);
 
   const fixedDuration = event.session.toLowerCase() === "lecture" ? 60 : 90;
 
-  // Fetch rooms from the backend when modal opens
+  
   useEffect(() => {
     fetchRooms();
   }, []);
@@ -33,7 +33,7 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
     }
   };
 
-  // Convert AM/PM time string (e.g., "7:30 AM") to 24-hour format (HH:MM)
+  
   const convertTo24 = (timeStr) => {
     const parts = timeStr.split(" ");
     if (parts.length < 2) return timeStr;
@@ -44,13 +44,13 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
     return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
   };
 
-  // Convert HH:MM to minutes since midnight.
+  
   const timeToMinutes = (timeStr) => {
     const [hours, minutes] = timeStr.split(":").map(Number);
     return hours * 60 + minutes;
   };
 
-  // Update available rooms and calculate the end time
+  
   const updateFields = useCallback(
     (newStart, dayValue) => {
       const startMinutes = timeToMinutes(newStart);
@@ -81,15 +81,14 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
     [event, schedule, allRooms, fixedDuration]
   );
 
-  // Overlap check: only check events on the same day with the same program, block, year 
-  // OR check all events assigned to the same faculty if applicable.
+  
   const checkForOverlap = useCallback(() => {
     if (!startTime) return;
     const newStartMinutes = timeToMinutes(startTime);
     const newEndMinutes = newStartMinutes + fixedDuration;
     let overlapFound = false;
     const dayToCheck = selectedDay || event.day;
-    // Check for overlap among events that match program, block, year on the same day.
+    
     schedule.forEach((ev) => {
       if (ev.schedule_id === event.schedule_id) return;
       if (
@@ -104,7 +103,7 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
         }
       }
     });
-    // Additionally, if the event already has a faculty assigned, check all events for that faculty.
+    
     if (event.faculty) {
       schedule.forEach((ev) => {
         if (ev.schedule_id === event.schedule_id) return;
@@ -119,7 +118,7 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
     setHasOverlap(overlapFound);
   }, [startTime, fixedDuration, schedule, event, selectedDay]);
 
-  // Initialize modal fields when event changes.
+  
   useEffect(() => {
     if (event) {
       const [startStr] = event.period.split(" - ");
@@ -130,7 +129,7 @@ const OverrideModal = ({ event, schedule, onClose, onSave }) => {
     }
   }, [event, updateFields]);
 
-  // Re-check overlap whenever startTime or selectedDay changes.
+  
   useEffect(() => {
     checkForOverlap();
   }, [startTime, selectedDay, checkForOverlap]);

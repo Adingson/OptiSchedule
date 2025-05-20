@@ -1,4 +1,4 @@
-// src/components/ScheduleGrid.js
+
 import React from 'react';
 import { parsePeriod, computeGroupKey } from '../utils/scheduleHelpers';
 import noScheduleLogo from '../assets/noScheduleLogo.png';
@@ -13,9 +13,9 @@ const ScheduleGrid = ({
   onSaveFinalSchedule,
   onSelectExistingSchedule,
   existingSchedules,
-  fetchError  // new prop to indicate schedule load error
+  fetchError  
 }) => {
-  // Sort events in each day by start time.
+  
   daysOrder.forEach((day) => {
     if (groupedSchedule[day]) {
       groupedSchedule[day].sort((a, b) => {
@@ -26,7 +26,7 @@ const ScheduleGrid = ({
     }
   });
 
-  // Calculate total number of events across all days.
+  
   const totalEvents = daysOrder.reduce((acc, day) => {
     return acc + (groupedSchedule[day] ? groupedSchedule[day].length : 0);
   }, 0);
@@ -71,7 +71,7 @@ const ScheduleGrid = ({
           </p>
         </div>
       ) : (
-        // Schedule Table for Each Day
+        
         <div className="schedule-table-container">
           {daysOrder.map((day) =>
             groupedSchedule[day] && groupedSchedule[day].length > 0 ? (

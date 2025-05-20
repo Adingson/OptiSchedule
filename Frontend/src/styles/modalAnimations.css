@@ -1,4 +1,4 @@
-/* Common Modal Animations - Add to global styles */
+
 @keyframes modalFadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -26,7 +26,7 @@
     100% { transform: scale(1); opacity: 1; }
   }
   
-  /* SuccessModal.css updates */
+ 
   .success-modal {
     animation: modalFadeIn .1s ease;
   }
@@ -43,7 +43,7 @@
     animation: modalPulse 0.5s ease infinite;
   }
   
-  /* UnassignModal.css updates */
+  
   .modal-overlay {
     animation: modalFadeIn 0.1s ease;
   }
@@ -61,7 +61,6 @@
     transition: transform 0.3s ease;
   }
   
-  /* ConfirmationModal.css updates - enhance existing animations */
   .confirmation-modal-overlay {
     animation: modalFadeIn 0.1s ease;
   }
@@ -82,7 +81,6 @@
     animation: modalFadeIn 0.5s ease 0.2s backwards;
   }
   
-  /* Enhanced button interactions */
   .confirmation-modal-btn {
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -96,8 +94,6 @@
     transform: translateY(-1px);
   }
   
-  /* Add a subtle exit animation - you'll need JS to utilize this 
-     by adding a class when closing */
   .modal-closing {
     animation: modalFadeOut 0.3s ease forwards;
   }

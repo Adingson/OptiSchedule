@@ -10,24 +10,24 @@ import {
   MdClose
 } from 'react-icons/md';
 import '../styles/Sidebar.css';
-import logoImage from '../assets/optisched-logo.png'; // Ensure the image exists in your assets folder
-import ConfirmationModal from '../components/ConfirmationModal'; // Import the confirmation modal component
+import logoImage from '../assets/optisched-logo.png'; 
+import ConfirmationModal from '../components/ConfirmationModal'; 
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  // Function to clear the auth token and redirect to the login page
+  
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
     window.location.href = '/';
   };
 
-  // Show the confirmation modal when logout is clicked
+  
   const confirmLogout = () => {
     setShowConfirmation(true);
   };
 
-  // Cancel the logout confirmation modal
+  
   const cancelLogout = () => {
     setShowConfirmation(false);
   };

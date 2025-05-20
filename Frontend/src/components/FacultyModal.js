@@ -2,7 +2,7 @@ import React from 'react';
 import { computeGroupKey } from '../utils/scheduleHelpers';
 import "../styles/ScheduleManagement.css";
 
-// Helper: Convert a time string ("7:00 AM") into minutes.
+
 const toMinutes = timeStr => {
   const [time, meridiem] = timeStr.split(' ');
   let [hours, minutes] = time.split(':').map(Number);
@@ -11,7 +11,7 @@ const toMinutes = timeStr => {
   return hours * 60 + minutes;
 };
 
-// Merge consecutive time periods for events with identical details.
+
 const mergeConsecutiveEvents = events => {
   const eventsCopy = JSON.parse(JSON.stringify(events));
   eventsCopy.sort((a, b) => {
@@ -73,7 +73,7 @@ const mergeConsecutiveEvents = events => {
   return mergedEvents;
 };
 
-// Define day mapping and order for merging day information.
+
 const dayMapping = {
   "Monday": "M",
   "Tuesday": "T",
@@ -87,19 +87,19 @@ const dayMapping = {
 const dayOrder = ["M", "T", "W", "Th", "F", "Sat", "Sun"];
 
 const FacultyModal = ({ faculty, assignedEvents, onClose, onRequestUnassignGroup }) => {
-  // If no faculty object, don’t render anything
+  
   if (!faculty) return null;
 
-  // First, merge the day information.
+  
   const mergedDaysEvents = assignedEvents && assignedEvents.length > 0 ? (() => {
-    // Sort events by start time.
+    
     const sortedEvents = assignedEvents.slice().sort((a, b) => {
       const aStart = toMinutes(a.period.split(' - ')[0]);
       const bStart = toMinutes(b.period.split(' - ')[0]);
       return aStart - bStart;
     });
 
-    // Merge day abbreviations.
+    
     const mergedEventsMap = sortedEvents.reduce((acc, event) => {
       const key = `${event.courseCode}-${event.session}-${event.program}-${event.year}-${event.block}-${event.room}-${event.faculty}-${event.period}`;
       const dayAbbrev = dayMapping[event.day] || event.day;
@@ -119,7 +119,7 @@ const FacultyModal = ({ faculty, assignedEvents, onClose, onRequestUnassignGroup
     });
   })() : [];
 
-  // Next, merge consecutive events (time periods) from the day-merged events.
+  
   const finalMergedEvents = mergedDaysEvents.length > 0 ? mergeConsecutiveEvents(mergedDaysEvents) : [];
 
   return (

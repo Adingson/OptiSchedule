@@ -1,12 +1,4 @@
-// src/pages/AdminSettings.js
-// ------------------------------------------------------------------------
-// This component manages the admin settings for room updates, time 
-// settings, and day selections. The top header text has been removed. 
-// A global success modal is implemented. Upon a successful update,
-// the modal appears with a large "Success!" title, a smaller descriptive 
-// message in gray, a logo at the top (a green lineart document with check), 
-// and a custom close button featuring an arrow-in-a-circle.
-// ------------------------------------------------------------------------
+
 import React, { useState, useEffect } from 'react';
 import {
   getRooms,
@@ -19,7 +11,7 @@ import {
 import SuccessModal from '../components/SuccessModal';
 import '../styles/AdminSettings.css';
 
-// Helper: Convert 24-hour time to dropdown values (hour & AM/PM)
+
 const convertToDropdown = (time24) => {
   let period = time24 >= 12 ? 'PM' : 'AM';
   let hour = time24 % 12;
@@ -27,39 +19,39 @@ const convertToDropdown = (time24) => {
   return { hour, period };
 };
 
-// Helper: Convert dropdown hour and period to 24-hour format
+
 const convertTo24Hour = (hour, period) => {
   hour = Number(hour);
   return period === 'AM' ? (hour === 12 ? 0 : hour) : (hour === 12 ? 12 : hour + 12);
 };
 
 const AdminSettings = () => {
-  // ROOMS STATES
+  
   const [lectureRooms, setLectureRooms] = useState([]);
   const [labRooms, setLabRooms] = useState([]);
   const [newLectureRoom, setNewLectureRoom] = useState('');
   const [newLabRoom, setNewLabRoom] = useState('');
 
-  // TIME SETTINGS STATES
+ 
   const [startHour, setStartHour] = useState(7);
   const [startPeriod, setStartPeriod] = useState('AM');
   const [endHour, setEndHour] = useState(9);
   const [endPeriod, setEndPeriod] = useState('PM');
 
-  // DAYS STATES
+ 
   const [days, setDays] = useState([]);
   const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-  // LOADING & MESSAGE STATE
+  
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  // SUCCESS MODAL STATE
+  
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [modalType, setModalType] = useState("success");
 
-  // Initial Data Loading
+  
   useEffect(() => {
     loadRooms();
     loadTimeSettings();
@@ -71,7 +63,7 @@ const AdminSettings = () => {
     setLoading(true);
     setMessage('');
     try {
-      const res = await getRooms(); // Expected: { lecture: [...], lab: [...] }
+      const res = await getRooms(); 
       if (res.lecture && res.lab) {
         setLectureRooms(res.lecture);
         setLabRooms(res.lab);
@@ -207,21 +199,21 @@ const AdminSettings = () => {
   };
 
   // --------------------- SUCCESS MODAL LOGIC ---------------------
-  // Function to show the modal with the provided message and type.
+  
   const showModal = (msg, type = "success") => {
     setSuccessMessage(msg);
     setModalType(type);
     setShowSuccessModal(true);
   };
 
-  // Function to close the success modal.
+ 
   const closeModal = () => {
     setShowSuccessModal(false);
   };
 
   // --------------------- RENDER UI ---------------------
   return (
-    // New wrapper for zooming out the component to 80%
+    
     <div className="zoom-wrapper">
       <div className="admin-settings-container">
         {/* Rooms Card */}

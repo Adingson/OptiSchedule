@@ -1,4 +1,4 @@
-/* src/styles/ConfirmationModal.css */
+
 @import './modalAnimations.css';
 
 :root {
@@ -16,7 +16,7 @@
   --transition-speed: 0.25s;
 }
 
-/* Overlay */
+
 .confirmation-modal-overlay {
   position: fixed;
   inset: 0;
@@ -28,7 +28,6 @@
   animation: fadeIn var(--transition-speed) ease-out;
 }
 
-/* Modal Container */
 .confirmation-modal {
   background: var(--bg);
   border-radius: var(--radius);
@@ -41,7 +40,7 @@
   animation: scaleIn var(--transition-speed) ease-out;
 }
 
-/* Modal Animations */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -52,7 +51,7 @@
   to { transform: scale(1); }
 }
 
-/* Title */
+
 .confirmation-modal-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -63,7 +62,7 @@
   padding-bottom: 12px;
 }
 
-/* Message */
+
 .confirmation-modal-message {
   font-size: 1rem;
   color: var(--text);
@@ -72,7 +71,7 @@
   text-align: left;
 }
 
-/* Buttons Container */
+
 .confirmation-modal-buttons {
   display: flex;
   justify-content: flex-end;
@@ -80,7 +79,7 @@
   margin-top: 20px;
 }
 
-/* Button Base */
+
 .confirmation-modal-btn {
   padding: 8px 16px;
   border: none;
@@ -91,7 +90,7 @@
   transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
-/* Confirm Button */
+
 .confirmation-modal-btn.confirm {
   background: var(--primary);
   color: #ffffff;
@@ -102,7 +101,7 @@
   transform: translateY(-2px);
 }
 
-/* Cancel Button */
+
 .confirmation-modal-btn.cancel {
   background: var(--neutral);
   color: #ffffff;
@@ -113,7 +112,7 @@
   transform: translateY(-2px);
 }
 
-/* Close Icon Button */
+
 .confirmation-modal-close {
   position: absolute;
   top: 12px;

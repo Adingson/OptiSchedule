@@ -1,4 +1,4 @@
-// src/components/ConfirmationModal.js
+
 import React from 'react';
 import '../styles/ConfirmationModal.css';
 
@@ -9,7 +9,7 @@ const ConfirmationModal = ({
   onCancel,
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
-  type = 'warning' // You can use this prop for conditional styling.
+  type = 'warning' 
 }) => {
   return (
     <div className="confirmation-modal-overlay">

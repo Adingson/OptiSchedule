@@ -23,8 +23,8 @@ const FacultyAddModal = ({ onClose, onSave }) => {
       alert("Faculty name is required.");
       return;
     }
-    onClose();            // Close modal immediately
-    onSave(facultyData);  // Fire save in background
+    onClose();            
+    onSave(facultyData);  
   };
 
   return (

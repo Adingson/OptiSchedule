@@ -13,22 +13,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #2E7D32;            /* Dark Green Primary */
-  --primary-dark: #1B5E20;       /* Darker shade for hover/active states */
-  --primary-light: rgba(46, 125, 50, 0.1);  /* Light green tint */
+  --primary: #2E7D32;            
+  --primary-dark: #1B5E20;       
+  --primary-light: rgba(46, 125, 50, 0.1);  
   --white: #ffffff;
   --light-gray: #f5f5f5;
   --medium-gray: #e0e0e0;
   --dark-gray: #666666;
   --border-gray: #dddddd;
   
-  /* Animation durations */
+ 
   --animation-fast: 0.2s;
   --animation-medium: 0.4s;
   --animation-slow: 0.8s;
 }
 
-/* Animation Keyframes */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -100,23 +100,23 @@
 
 .create-schedule-page {
   width: 100%;
-  padding: 24px 32px;        /* was 30px 40px */
-  background-color: #f0f4f2;   /* subtle off-white/green hue */
+  padding: 24px 32px;        
+  background-color: #f0f4f2;   
   box-sizing: border-box;
   animation: fadeIn var(--animation-medium) ease-out;
-  position: relative; /* Ensures proper positioning context */
-  min-height: 100vh; /* Ensures the page takes at least full viewport height */
+  position: relative; 
+  min-height: 100vh; 
 }
 
-/* General Card Styles */
+
 .schedule-name-card,
 .filters-card,
 .course-management-card {
   background-color: var(--white);
-  padding: 16px 24px;         /* was 20px 30px */
-  border-radius: 10px;        /* was 12px (12px * 0.8 ≈ 9.6px, rounded to 10px) */
-  margin-bottom: 20px;        /* was 25px */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);  /* was 0 2px 10px */
+  padding: 16px 24px;         
+  border-radius: 10px;        
+  margin-bottom: 20px;      
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); 
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -127,7 +127,7 @@
   transform: translateY(-2px);
 }
 
-/* Animated entry for cards */
+
 .schedule-name-card {
   animation: slideInFromTop var(--animation-medium) ease-out;
 }
@@ -142,35 +142,35 @@
   animation-delay: 0.2s;
 }
 
-/* Section Title & Labels */
+
 .page-title,
 .filters-card h2,
 .course-management-card h2 {
-  font-size: 1.28rem;         /* was 1.6rem */
+  font-size: 1.28rem;         
   color: var(--primary);
-  margin-bottom: 12px;        /* was 15px */
+  margin-bottom: 12px;       
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
 .section-label {
   display: block;
   font-weight: 600;
-  margin-bottom: 8px;         /* was 10px */
+  margin-bottom: 8px;         
   animation: fadeIn var(--animation-medium) ease-out;
   animation-delay: 0.1s;
 }
 
-/* Form Elements for Cards */
+
 .schedule-name-card input,
 .filters-card input,
 .filters-card select,
 .course-management-card input,
 .course-management-card select {
   width: 100%;
-  padding: 8px 10px;          /* was 10px 12px */
+  padding: 8px 10px;          
   border: 1px solid var(--border-gray);
-  border-radius: 6px;         /* was 8px (8px * 0.8 = 6.4px, rounded to 6px) */
-  font-size: 0.8em;           /* was 1em */
+  border-radius: 6px;        
+  font-size: 0.8em;           
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -184,20 +184,20 @@
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
-/* Dropdown Styling */
+
 select {
-  width: 110px;                /* was 115px (115 * 0.8 ≈ 92) */
+  width: 110px;                
   appearance: none;
   background-color: var(--white);
   border: 1px solid var(--border-gray);
-  border-radius: 6px;         /* was 8px */
-  padding: 8px 11px;          /* was 10px 14px (14 * 0.8 ≈ 11.2px) */
-  font-size: 0.8em;           /* was 1em */
+  border-radius: 6px;         
+  padding: 8px 11px;         
+  font-size: 0.8em;           
   color: var(--dark-gray);
   background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%200l5%206l5-6H0z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E');
   background-repeat: no-repeat;
-  background-position: right 11px center;  /* was right 14px center */
-  background-size: 8px 5px;     /* was 10px 6px */
+  background-position: right 11px center;  
+  background-size: 8px 5px;    
   transition: border-color 0.3s ease;
 }
 
@@ -206,11 +206,11 @@ select:focus {
   outline: none;
 }
 
-/* Filters Section */
+
 .filters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;                /* was 20px */
+  gap: 16px;               
 }
 
 .filter-item {
@@ -219,7 +219,7 @@ select:focus {
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
-/* Staggered animation for filter items */
+
 .filter-item:nth-child(1) {
   animation-delay: 0.2s;
 }
@@ -234,13 +234,13 @@ select:focus {
 
 .filter-item label {
   font-weight: 600;
-  margin-bottom: 6px;       /* was 8px */
+  margin-bottom: 6px;      
   color: var(--dark-gray);
 }
 
-/* Course Management Section */
+
 .import-action {
-  margin-bottom: 12px;      /* was 15px */
+  margin-bottom: 12px;      
   animation: fadeIn var(--animation-medium) ease-out;
   animation-delay: 0.3s;
 }
@@ -249,9 +249,9 @@ select:focus {
   background-color: var(--primary);
   color: var(--white);
   border: none;
-  padding: 8px 14px;         /* was 10px 18px (18*0.8 ≈ 14.4px → 14px) */
-  font-size: 0.76em;         /* was 0.95em (0.95*0.8 ≈ 0.76em) */
-  border-radius: 6px;         /* was 8px */
+  padding: 8px 14px;        
+  font-size: 0.76em;        
+  border-radius: 6px;        
   cursor: pointer;
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
   position: relative;
@@ -269,24 +269,24 @@ select:focus {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Course Table Styles */
+
 .course-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 16px;         /* was 20px */
+  margin-top: 16px;         
   background-color: var(--white);
-  border-radius: 10px;        /* was 12px */
+  border-radius: 10px;      
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);  /* was 0 2px 10px */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); 
   animation: slideInFromBottom var(--animation-medium) ease-out;
   animation-delay: 0.4s;
 }
 
 .course-table th,
 .course-table td {
-  padding: 11px 13px;        /* was 14px 16px */
+  padding: 11px 13px;        
   text-align: left;
-  font-size: 0.76em;         /* was 0.95em */
+  font-size: 0.76em;         
   border-bottom: 1px solid var(--border-gray);
   transition: background-color 0.3s ease;
 }
@@ -306,14 +306,14 @@ select:focus {
 }
 
 .action-col {
-  width: 32px;              /* was 40px */
+  width: 32px;              
 }
 
-/* Edit & Delete Buttons */
+
 .edit-btn {
   background: none;
   border: none;
-  font-size: 0.96em;         /* was 1.2em */
+  font-size: 0.96em;         
   cursor: pointer;
   color: var(--primary);
   transition: transform 0.3s ease, color 0.3s ease;
@@ -324,10 +324,10 @@ select:focus {
   color: var(--primary-dark);
 }
 
-/* Generate Schedule Section */
+
 .generate-schedule-section {
   text-align: center;
-  margin-bottom: 28px;      /* was 35px */
+  margin-bottom: 28px;      
   animation: fadeIn var(--animation-medium) ease-out;
   animation-delay: 0.5s;
 }
@@ -336,7 +336,7 @@ select:focus {
   background-color: var(--primary);
   color: var(--white);
   border: none;
-  padding: 11px 21px;       /* was 14px 26px */
+  padding: 11px 21px;      
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -367,7 +367,7 @@ select:focus {
   animation: slideInFromBottom var(--animation-medium) ease-out;
 }
 
-/* Loading Overlay */
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -398,7 +398,7 @@ select:focus {
   100% { transform: rotate(360deg); }
 }
 
-/* Loading message animation */
+
 .loading-message {
   animation: fadeInOut 3s ease-in-out infinite;
   font-weight: 600;
@@ -410,7 +410,7 @@ select:focus {
   50% { opacity: 1; }
 }
 
-/* Modal Overlay */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -425,8 +425,7 @@ select:focus {
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
-/* Base Modal Window */
-/* Base Modal Window */
+
 .modal-window {
   background-color: #fff;
   padding: 24px 32px;
@@ -438,46 +437,45 @@ select:focus {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   animation: slideInFromBottom var(--animation-medium) ease-out;
   
-  /* Hide scrollbar by default but reserve space */
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: transparent transparent; /* For Firefox */
+ 
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
 }
 
 .modal-window:hover,
 .modal-window:focus,
 .modal-window:active {
-  scrollbar-color: var(--primary) transparent; /* For Firefox */
+  scrollbar-color: var(--primary) transparent; 
 }
 
 .modal-window::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar */
+  width: 6px; 
 }
 
 .modal-window::-webkit-scrollbar-track {
-  background: transparent; /* Transparent track */
+  background: transparent;
 }
 
 .modal-window::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Initially transparent thumb */
+  background-color: transparent; 
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
-/* Show scrollbar thumb on hover or active scrolling */
 .modal-window:hover::-webkit-scrollbar-thumb,
 .modal-window:focus::-webkit-scrollbar-thumb,
 .modal-window:active::-webkit-scrollbar-thumb {
-  background-color: var(--primary); /* Green scrollbar when visible */
+  background-color: var(--primary); 
 }
 
-/* Ensure the scrollbar doesn't take up extra space */
+
 .modal-window {
-  -ms-overflow-style: none; /* IE and Edge - hide scrollbar but allow scrolling */
-  scrollbar-width: thin; /* Firefox - thin scrollbar */
+  -ms-overflow-style: none; 
+  scrollbar-width: thin; 
 }
 
 
-/* Modal Header */
+
 .modal-header {
   text-align: center;
   font-size: 1.25rem;
@@ -488,7 +486,7 @@ select:focus {
   padding-bottom: 8px;
 }
 
-/* Form Labels and Inputs */
+
 .modal-window form label {
   display: block;
   margin-top: 12px;
@@ -516,7 +514,7 @@ select:focus {
   outline: none;
 }
 
-/* Modal Button Row */
+
 .modal-button-row {
   display: flex;
   justify-content: center;
@@ -526,7 +524,7 @@ select:focus {
   animation-delay: 0.2s;
 }
 
-/* Button Styles */
+
 .save-btn {
   background-color: #2e7d32;
   color: #fff;
@@ -573,7 +571,7 @@ select:focus {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Additional spacing for preview and action areas */
+
 .preview-save {
   text-align: right;
   margin-top: 12px;
@@ -600,9 +598,9 @@ select:focus {
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
-/* Floating Add Button - Fixed to stay outside any card */
+
 .floating-add-btn {
-  position: fixed; /* Keep it fixed to the viewport */
+  position: fixed; 
   bottom: 30px;
   right: 40px;
   width: 55px;
@@ -618,7 +616,7 @@ select:focus {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 500; /* Ensure it stays above other elements */
+  z-index: 500; 
   animation: fadeIn var(--animation-medium) ease-out;
 }
 
@@ -649,7 +647,7 @@ select:focus {
   animation-delay: 0.2s;
 }
 
-/* Animation for modal entry/exit */
+
 .modal-enter {
   animation: fadeIn var(--animation-medium) ease-out;
 }

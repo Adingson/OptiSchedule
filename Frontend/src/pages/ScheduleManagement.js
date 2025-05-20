@@ -1,4 +1,4 @@
-// src/pages/scheduleManagement/ScheduleManagement.js
+
 import React, { useEffect, useState } from 'react';
 import {
   generateSchedule,
@@ -55,12 +55,11 @@ const ScheduleManagement = () => {
   const [successModalData, setSuccessModalData] = useState(null);
   const [confirmationModalData, setConfirmationModalData] = useState(null);
 
-  // Loading flag for faculty fetching.
+  
   const [isFacultyLoading, setIsFacultyLoading] = useState(false);
 
   const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-  // Fetch the generated schedule on mount
   useEffect(() => {
     const fetchCurrentSchedule = async () => {
       setLoading(true);
@@ -87,7 +86,7 @@ const ScheduleManagement = () => {
     fetchCurrentSchedule();
   }, []);
 
-  // Fetch faculty list
+  
   useEffect(() => {
     const fetchFacultyData = async () => {
       setIsFacultyLoading(true);
@@ -109,7 +108,7 @@ const ScheduleManagement = () => {
     fetchFacultyData();
   }, []);
 
-  // Fetch existing saved schedules
+  
   useEffect(() => {
     const fetchExistingSchedules = async () => {
       try {
@@ -124,7 +123,7 @@ const ScheduleManagement = () => {
     fetchExistingSchedules();
   }, []);
 
-  // Handle filter changes for schedule filters.
+  
   const handleFilterChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFilters((prev) => ({
@@ -137,7 +136,7 @@ const ScheduleManagement = () => {
     setFacultySearch(e.target.value);
   };
 
-  // Apply filters to the schedule
+  
   const filteredSchedule = (schedule || []).filter((event) => {
     const { program, year, block, courseQuery, day, showUnassignedOnly } = filters;
     if (program !== 'all' && event.program !== program) return false;
@@ -154,7 +153,7 @@ const ScheduleManagement = () => {
     return true;
   });
 
-  // Group events by day
+  
   const groupByDay = (events) =>
     events.reduce((acc, event) => {
       const eventDay = event.day || 'Other';
@@ -165,7 +164,7 @@ const ScheduleManagement = () => {
 
   const groupedSchedule = groupByDay(filteredSchedule);
 
-  // Save the final schedule
+  
   const handleSaveFinalSchedule = async () => {
     setLoading(true);
     setLoadingMessage('Saving Schedule, please wait...');
@@ -190,7 +189,7 @@ const ScheduleManagement = () => {
     }
   };
 
-  // Load an existing schedule
+  
   const handleSelectExistingSchedule = async (e) => {
     const selectedName = e.target.value;
     if (selectedName) {
@@ -227,7 +226,7 @@ const ScheduleManagement = () => {
     }
   };
 
-  // Toggle group selection
+  
   const handleToggleGroupSelection = (event) => {
     const groupKey = computeGroupKey(event);
     if (selectedGroup && selectedGroup.groupKey === groupKey) {
@@ -238,7 +237,7 @@ const ScheduleManagement = () => {
     }
   };
 
-  // Assign faculty to the selected group
+  
   const handleAssignFaculty = async (facultyObj) => {
     if (!selectedGroup) return;
     try {
@@ -259,7 +258,7 @@ const ScheduleManagement = () => {
     }
   };
 
-  // Open override modal
+  
   const handleOverride = (scheduleId) => {
     const event = (schedule || []).find((e) => e.schedule_id === scheduleId);
     if (event) {
@@ -273,13 +272,13 @@ const ScheduleManagement = () => {
     setOverrideEventData(null);
   };
 
-  // Save override and re-fetch schedule
+  
   const handleSaveOverride = async (overrideDetails) => {
     try {
       const response = await overrideEvent(overrideDetails);
       if (response.status === 'success') {
         setSuccessModalData({ message: 'Override saved successfully.', type: 'success' });
-        // re-fetch schedule
+        
         const data = await generateSchedule(false, true);
         if (data.status === 'success' && data.schedule) {
           setSchedule(data.schedule);

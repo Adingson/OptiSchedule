@@ -6,7 +6,7 @@ import gcLogo from '../assets/GClogo.png';
 import backgroundImage from '../assets/background-leaf.png';
 import '../styles/LoginPage.css';
 
-// Import the API URL from environment variables
+
 const API_URL = process.env.REACT_APP_API_URL || 'https://optisched.onrender.com';
 
 const LoginPage = () => {
@@ -17,12 +17,12 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // Toggle password visibility
+  
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // Handle form submission
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);

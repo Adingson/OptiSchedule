@@ -1,8 +1,6 @@
-/* LoginPage.css */
 
-/* Reset margins and padding to ensure no default spacing causes overflow */
 body, html {
-  overflow-x: hidden; /* Prevent scrolling on the body */
+  overflow-x: hidden; 
   margin: 0;
   padding: 0;
 }
@@ -11,20 +9,20 @@ body, html {
   display: flex;
   height: 100vh;
   width: 100vw;
-  overflow: hidden; /* Explicitly prevent overflow */
-  box-sizing: border-box; /* Include padding and border in element's width and height */
+  overflow: hidden; 
+  box-sizing: border-box; 
 }
 
-/* Left side with OptiSched logo and floating squares */
+
 .left-container {
   flex: 1;
-  background-color: white; /* Changed from #f0f7f0 to white */
+  background-color: white; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden; /* Prevent floating squares from causing overflow */
+  overflow: hidden; 
 }
 
 .optisched-logo {
@@ -34,14 +32,14 @@ body, html {
   animation: fadeInDown 1.2s ease-out;
 }
 
-/* Right side with login form */
+
 .right-container {
   flex: 1;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevent any content overflow */
+  overflow: hidden; 
 }
 
 .login-section {
@@ -59,15 +57,15 @@ body, html {
   animation: pulse 2s infinite ease-in-out;
 }
 
-/* Login card - DECREASED WIDTH */
+
 .login-card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  width: 300px; /* Decreased from likely 380-400px */
+  width: 300px; 
   max-width: 90%;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box; 
   animation: slideInUp 0.8s ease-out;
 }
 
@@ -79,11 +77,11 @@ body, html {
   animation: colorShift 4s infinite alternate;
 }
 
-/* Form styling */
+
 .form-group {
   margin-bottom: 20px;
   width: 100%;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box; 
   transition: transform 0.3s ease;
 }
 
@@ -97,7 +95,7 @@ body, html {
   font-size: 14px;
   outline: none;
   transition: all 0.3s;
-  box-sizing: border-box; /* Include padding and border in width calculation */
+  box-sizing: border-box; 
 }
 
 .form-group input:focus {
@@ -105,7 +103,7 @@ body, html {
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
-/* Password toggle styling */
+
 .password-group {
   position: relative;
 }
@@ -125,7 +123,7 @@ body, html {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Login button */
+
 .login-btn {
   width: 100%;
   padding: 12px;
@@ -137,7 +135,7 @@ body, html {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box; 
   position: relative;
   overflow: hidden;
 }
@@ -160,7 +158,7 @@ body, html {
   box-shadow: none;
 }
 
-/* Button ripple effect */
+
 .login-btn::after {
   content: '';
   position: absolute;
@@ -177,7 +175,7 @@ body, html {
   animation: ripple 0.8s;
 }
 
-/* Error message */
+
 .message.error {
   color: #d32f2f;
   text-align: center;
@@ -186,7 +184,7 @@ body, html {
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
-/* Loading overlay */
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -218,17 +216,17 @@ body, html {
   animation: pulse 1.5s infinite;
 }
 
-/* Rotating squares animation - UPDATED with more squares, increased size and opacity */
+
 .floating-squares {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Ensure squares don't cause overflow */
+  overflow: hidden; 
 }
 
 .square {
   position: absolute;
-  background-color: rgba(46, 125, 50, 0.158); /* Green squares with opacity */
+  background-color: rgba(46, 125, 50, 0.158); 
   border-radius: 10px;
   animation: rotate 10s infinite linear;
   transform-origin: center;
@@ -292,7 +290,7 @@ body, html {
   animation: rotate 24s infinite linear, float 17s infinite ease-in-out;
 }
 
-/* Added new squares */
+
 .square8 {
   width: 95px;
   height: 95px;
@@ -333,9 +331,7 @@ body, html {
   animation: rotate 26s infinite linear, float 21s infinite ease-in-out reverse;
 }
 
-/* New animations */
 
-/* Floating animation for squares */
 @keyframes float {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -348,7 +344,7 @@ body, html {
   }
 }
 
-/* Rotation keyframes */
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -364,7 +360,7 @@ body, html {
   }
 }
 
-/* Fade in animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -374,7 +370,7 @@ body, html {
   }
 }
 
-/* Fade in with downward movement */
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -386,7 +382,7 @@ body, html {
   }
 }
 
-/* Slide up animation */
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -398,7 +394,7 @@ body, html {
   }
 }
 
-/* Color shift animation */
+
 @keyframes colorShift {
   0% {
     color: #2E7D32;
@@ -412,7 +408,7 @@ body, html {
 }
 
 
-/* Shake animation for error messages */
+
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -425,7 +421,7 @@ body, html {
   }
 }
 
-/* Button ripple effect */
+
 @keyframes ripple {
   0% {
     transform: scale(0);
@@ -437,17 +433,17 @@ body, html {
   }
 }
 
-/* Spin animation for loader */
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive adjustments */
+
 @media screen and (max-width: 768px) {
   .login-container {
     flex-direction: column;
-    height: 100%; /* Use 100% height instead of 100vh on mobile */
+    height: 100%; 
   }
   
   .left-container {
@@ -469,7 +465,6 @@ body, html {
   }
 }
 
-/* Additional reset for specific browsers */
 * {
   margin: 0;
   padding: 0;

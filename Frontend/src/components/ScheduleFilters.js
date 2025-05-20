@@ -1,4 +1,4 @@
-// src/components/ScheduleFilters.js
+
 import React from 'react';
 
 const ScheduleFilters = ({ filters, onFilterChange }) => {

@@ -1,6 +1,4 @@
-/* src/styles/UnassignModal.css */
 
-/* Reuse shared variables and common styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import './modalAnimations.css';
 
@@ -29,7 +27,7 @@
   z-index: 2000;
 }
 
-/* The main container for the unassign confirmation modal */
+
 .unassign-modal {
   background-color: var(--white);
   border-radius: var(--radius);
@@ -39,40 +37,40 @@
   max-height: 95vh;
   overflow-y: auto;
   animation: fadeIn 0.3s ease;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: transparent transparent; /* For Firefox - initially transparent */
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
 }
 
-/* Show scrollbar on hover or when scrolling for Firefox */
+
 .unassign-modal:hover,
 .unassign-modal:focus,
 .unassign-modal:active {
-  scrollbar-color: var(--primary) transparent; /* Green thumb, transparent track for Firefox */
+  scrollbar-color: var(--primary) transparent; 
 }
 
-/* WebKit browsers (Chrome, Safari, Edge) */
+
 .unassign-modal::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar */
+  width: 6px; 
 }
 
 .unassign-modal::-webkit-scrollbar-track {
-  background: transparent; /* Transparent track */
+  background: transparent;
 }
 
 .unassign-modal::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Initially transparent thumb */
+  background-color: transparent;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
-/* Show scrollbar thumb on hover or active scrolling */
+
 .unassign-modal:hover::-webkit-scrollbar-thumb,
 .unassign-modal:focus::-webkit-scrollbar-thumb,
 .unassign-modal:active::-webkit-scrollbar-thumb {
-  background-color: var(--primary); /* Green scrollbar when visible */
+  background-color: var(--primary); 
 }
 
-/* Header */
+
 .unassign-modal-header {
   background-color: var(--primary);
   color: var(--white);
@@ -91,12 +89,12 @@
   font-size: 0.95rem;
 }
 
-/* Content */
+
 .unassign-modal-content {
     padding: 16px 24px;
     overflow-y: auto;
-    flex: 1; /* Let it expand to fill the modal height */
-    min-height: 0; /* Fix for flex scroll */
+    flex: 1; 
+    min-height: 0; 
   }
 
 .unassign-info {
@@ -105,7 +103,7 @@
   margin-bottom: 12px;
 }
 
-/* Modal Table Container */
+
 .modal-table-container {
     width: 100%;
     border-collapse: collapse;
@@ -131,7 +129,6 @@
   font-weight: 500;
 }
 
-/* Footer */
 .unassign-modal-footer {
   padding: 16px 24px;
   display: flex;
@@ -168,7 +165,7 @@
   background-color: darkgreen;
 }
 
-/* Fade in animation */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }

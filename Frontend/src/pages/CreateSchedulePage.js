@@ -26,7 +26,7 @@ const CreateSchedulePage = () => {
     validYears.push(year);
   }
 
-  // Loading Messages
+  
   const loadingMessages = {
     addCourse: [
       "Adding course to the curriculum...",
@@ -50,13 +50,13 @@ const CreateSchedulePage = () => {
     ]
   };
 
-  // Helper function to get a random message from a category
+  
   const getRandomLoadingMessage = (category) => {
     const messages = loadingMessages[category];
     return messages[Math.floor(Math.random() * messages.length)];
   };
 
-  // Helper function for schedule generation messages that account for the 30-80% range
+  
   const getScheduleGenerationMessage = (progress) => {
     if (progress < 30) {
       return "Initializing scheduling engine and gathering course data...";
@@ -197,12 +197,12 @@ const CreateSchedulePage = () => {
     setLoading(true);
     setLoadingMessage(getRandomLoadingMessage('importCourses'));
     try {
-      // Run the addCourse requests in parallel.
+      
       const results = await Promise.allSettled(
         importedCourses.map(course => addCourse(course))
       );
   
-      // Separate courses that were saved successfully and those that failed.
+      
       const successfulCourses = [];
       const failedCourses = [];
       importedCourses.forEach((course, index) => {

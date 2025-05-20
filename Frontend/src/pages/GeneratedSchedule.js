@@ -1,4 +1,4 @@
-// src/pages/GeneratedSchedule.js
+
 
 import React, { useState, useEffect } from 'react';
 import '../styles/GeneratedSchedulePage.css';
@@ -7,7 +7,7 @@ import SuccessModal from '../components/SuccessModal';
 import noScheduleLogo from '../assets/noScheduleLogo.png';
 import { exportToPDF, exportToExcel } from '../utils/exportUtils';
 
-// Helper: Convert time string ("7:00 AM") into minutes.
+
 const toMinutes = timeStr => {
   const [time, meridiem] = timeStr.split(' ');
   let [hours, minutes] = time.split(':').map(Number);
@@ -16,7 +16,7 @@ const toMinutes = timeStr => {
   return hours * 60 + minutes;
 };
 
-// Merge consecutive time periods for events with identical details
+
 const mergeConsecutiveEvents = events => {
   const eventsCopy = JSON.parse(JSON.stringify(events));
   eventsCopy.sort((a, b) => {
@@ -85,12 +85,12 @@ const GeneratedSchedulePage = () => {
   const [error, setError] = useState('');
   const [finalSchedulesList, setFinalSchedulesList] = useState([]);
 
-  // Success Modal State
+  
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [successModalMessage, setSuccessModalMessage] = useState('');
   const [modalType, setModalType] = useState("success");
 
-  // Day mappings and order
+  
   const dayMapping = {
     "Monday": "M",
     "Tuesday": "T",
@@ -173,14 +173,14 @@ const GeneratedSchedulePage = () => {
     return true;
   });
 
-  // Sort by start time
+ 
   const sortedSchedule = filteredSchedule.slice().sort((a, b) => {
     const aStart = toMinutes(a.period.split(' - ')[0]);
     const bStart = toMinutes(b.period.split(' - ')[0]);
     return aStart - bStart;
   });
 
-  // Group days
+  
   const grouped = sortedSchedule.reduce((acc, evt) => {
     const key = `${evt.courseCode}-${evt.session}-${evt.program}-${evt.year}-${evt.block}-${evt.period}-${evt.room}-${evt.faculty}`;
     const dayAbbrev = dayMapping[evt.day] || evt.day;
@@ -201,7 +201,7 @@ const GeneratedSchedulePage = () => {
 
   const mergedSchedule = mergeConsecutiveEvents(dayMergedSchedule);
 
-  // Final sort by start time after merging
+  
   const timeSortedSchedule = mergedSchedule.slice().sort((a, b) => {
     const aStart = toMinutes(a.period.split(' - ')[0]);
     const bStart = toMinutes(b.period.split(' - ')[0]);

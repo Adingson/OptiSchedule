@@ -6,14 +6,13 @@ import rightLogo from '../assets/CSSlogo.png';
 const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
   const assignedUnits = events.reduce((acc, event) => acc + computeEventUnits(event), 0);
 
-  // Format filter information to be more readable
+  
   const formatFilterInfo = (filterInfo) => {
     if (!filterInfo) return '';
     
-    // If filterInfo is already a string, let's parse and reformat it
+    
     if (typeof filterInfo === 'string') {
-      // Try to parse the existing string format
-      // Example: "BSCS Year2 Block B"
+      
       const programMatch = filterInfo.match(/(BSIT|BSCS|BSEMC)/);
       const yearMatch = filterInfo.match(/Year(\d+)/);
       const blockMatch = filterInfo.match(/Block\s+([A-F])/);
@@ -21,7 +20,7 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
       
       const parts = [];
       
-      // Program mapping
+      
       if (programMatch) {
         const programMap = {
           'BSIT': 'BS in Information Technology',
@@ -31,7 +30,7 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
         parts.push(programMap[programMatch[1]] || programMatch[1]);
       }
       
-      // Year with ordinal suffix
+      
       if (yearMatch) {
         const year = yearMatch[1];
         const getOrdinalSuffix = (num) => {
@@ -44,12 +43,12 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
         parts.push(`${year}${getOrdinalSuffix(year)} Year`);
       }
       
-      // Block
+      
       if (blockMatch) {
         parts.push(`Block ${blockMatch[1]}`);
       }
       
-      // Course query
+      
       if (courseMatch) {
         parts.push(`Course: ${courseMatch[1]}`);
       }
@@ -57,11 +56,11 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
       return parts.length > 0 ? parts.join(' • ') : filterInfo;
     }
     
-    // Convert filterInfo from object format to readable string
+    
     if (typeof filterInfo === 'object') {
       const parts = [];
       
-      // Format program names
+     
       if (filterInfo.program && filterInfo.program !== 'all') {
         const programMap = {
           'BSIT': 'BS in Information Technology',
@@ -71,7 +70,7 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
         parts.push(programMap[filterInfo.program] || filterInfo.program);
       }
       
-      // Format year with ordinal suffix
+      
       if (filterInfo.year && filterInfo.year !== 'all') {
         const getOrdinalSuffix = (num) => {
           const n = parseInt(num);
@@ -83,12 +82,12 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
         parts.push(`${filterInfo.year}${getOrdinalSuffix(filterInfo.year)} Year`);
       }
       
-      // Format block
+      
       if (filterInfo.block && filterInfo.block !== 'all') {
         parts.push(`Block ${filterInfo.block}`);
       }
       
-      // Add course query if present
+      
       if (filterInfo.courseQuery && filterInfo.courseQuery.trim()) {
         parts.push(`Course: ${filterInfo.courseQuery.trim()}`);
       }
@@ -100,13 +99,13 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
   };
 
   const extractScheduleInfo = (name) => {
-    // defaults
+    
     let semester = '';
     let academicYear = '';
     
     if (!name) return { semester, academicYear };
   
-    // "2025-2026 1st sem"
+    
     const p1 = /(\d{4}-\d{4})\s+(\d)(?:st|nd|rd|th)?\s*sem/i;
     let m = name.match(p1);
     if (m) {
@@ -117,14 +116,14 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
       return { semester: `${num}${suffix}`, academicYear: m[1] };
     }
   
-    // "2026-2027 Midyear"
+    
     const p2 = /(\d{4}-\d{4})\s+Midyear/i;
     m = name.match(p2);
     if (m) {
       return { semester: 'Midyear', academicYear: m[1] };
     }
     
-    // fallback
+    
     return { semester, academicYear };
   };
   
@@ -164,7 +163,6 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
       console.warn('Logo load failed', e);
     }
 
-    // Header
     doc.setFont('helvetica', 'bold').setFontSize(12)
       .text('City of Olongapo', w / 2, m + 6, { align: 'center' })
       .setFont('helvetica', 'bold').setFontSize(14)
@@ -178,14 +176,14 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
     doc.setDrawColor(0).setLineWidth(0.4)
       .line(m, m + 40, w - m, m + 40);
 
-    // Title
+    
     let y = m + 48;
     doc.setFont('helvetica', 'bold').setFontSize(16)
       .text('INDIVIDUAL FACULTY LOAD AND SCHEDULE', w / 2, y, { align: 'center' });
     doc.setFont('helvetica', 'normal').setFontSize(11)
       .text(`Semester: ${semester} | AY: ${academicYear}`, w / 2, y + 7, { align: 'center' });
 
-    // Faculty info
+    
     y += 15;
     const infoX = m;
     const gap = 30;
@@ -199,20 +197,20 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
         .setFont('helvetica', 'bold');
     });
 
-    // Designation
+    
     y += 14;
     doc.setFont('helvetica', 'bold').setFontSize(11)
       .text('Designation and Other Assignments:', m, y + 12);
     
-    // Add formatted filter information
+    
     const formattedFilterInfo = formatFilterInfo(filterInfo);
     if (formattedFilterInfo) {
       doc.setFont('helvetica', 'normal').setFontSize(10)
         .text(`${formattedFilterInfo}`, m, y + 16.5);
-      y += 6; // Adjust vertical position to accommodate the filter info
+      y += 6; 
     }
     
-    // Table
+    
     y += 13.5;
     const tableW = w - 2 * m;
     doc.autoTable({
@@ -235,7 +233,7 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
     doc.save(`Faculty_Schedule_${faculty.name}_${semester}_${academicYear.replace('-', '_')}.pdf`);
   };
 
-  // Export Excel with formatted filter information
+  
   const exportToExcel = () => {
     if (!faculty) return;
     const { semester, academicYear } = extractScheduleInfo(scheduleName);
@@ -247,7 +245,7 @@ const ExportButtons = ({ events, faculty, scheduleName, filterInfo }) => {
       [`Designations:`]
     ];
     
-    // Add formatted filter information
+    
     const formattedFilterInfo = formatFilterInfo(filterInfo);
     if (formattedFilterInfo) {
       info.push([`Class Schedule Filter: ${formattedFilterInfo}`]);

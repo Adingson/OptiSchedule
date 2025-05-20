@@ -5,7 +5,7 @@ const baseURL = 'https://optisched.onrender.com';
 const api = axios.create({
   baseURL,
 });
-// Attach auth token
+
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('accessToken');
   if (token) {
@@ -16,7 +16,7 @@ api.interceptors.request.use(config => {
 
 export const getBaseURL = () => baseURL;
 
-// Get current (cached or freshly generated) schedule, with optional progress updates.
+
 export const generateSchedule = async (force = false, progress = true) => {
   try {
     const response = await api.get('/schedule/generate', {
@@ -29,7 +29,7 @@ export const generateSchedule = async (force = false, progress = true) => {
   }
 };
 
-// Get a specific Schedule by name
+
 export const getFinalSchedule = async (scheduleName) => {
   try {
     const response = await api.get(`/schedule/final/${scheduleName}`);
@@ -50,7 +50,7 @@ export const getFinalSchedules = async (scheduleName) => {
   }
 };
 
-// Save a Generated schedule
+
 export const saveFinalSchedule = async (scheduleData) => {
   try {
     const response = await api.post('/schedule/save', scheduleData);

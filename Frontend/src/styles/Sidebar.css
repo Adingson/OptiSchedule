@@ -1,7 +1,7 @@
-/* SIDEBAR CONTAINER */
+
 .sidebar {
   width: 70px;
-  background-color: #1E5128; /* Darker green for better contrast */
+  background-color: #1E5128;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -21,18 +21,18 @@
 }
 
 .sidebar.closed {
-  transform: translateX(0); /* Keep sidebar visible when closed, just narrower */
+  transform: translateX(0); 
   width: 70px;
 }
 
-/* LOGO CONTAINER */
+
 .logo-container {
   display: flex;
   align-items: center;
   padding: 20px 15px;
   height: 70px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(0, 0, 0, 0.1); /* Slightly darker background for logo area */
+  background-color: rgba(0, 0, 0, 0.1); 
 }
 
 .logo-image {
@@ -46,7 +46,7 @@
 }
 
 .brand-name {
-  font-size: 16px; /* Reduced from 20px (20px x 0.8 = 16px) */
+  font-size: 16px; 
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
@@ -54,7 +54,6 @@
   color: #FFFFFF;
 }
 
-/* SIDEBAR MENU */
 .sidebar-menu {
   flex-grow: 1;
   display: flex;
@@ -63,7 +62,7 @@
   overflow-y: auto;
 }
 
-/* MENU ITEMS */
+
 .menu-item {
   display: flex;
   align-items: center;
@@ -71,7 +70,7 @@
   color: #FFFFFF;
   text-decoration: none;
   transition: all 0.2s ease;
-  font-size: 13px; /* Reduced from 16px (16px x 0.8 ≈ 13px) */
+  font-size: 13px; 
   border-left: 4px solid transparent;
   margin-bottom: 5px;
 }
@@ -96,13 +95,13 @@
   font-weight: 500;
 }
 
-/* Active menu item styling */
+
 .menu-item.active {
   background-color: rgba(255, 255, 255, 0.15);
   border-left: 4px solid #4CAF50;
 }
 
-/* SIDEBAR FOOTER (USER INFO AND LOGOUT) */
+
 .sidebar-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 15px;
@@ -124,35 +123,34 @@
   margin-top: 5px;
   padding: 12px 15px;
   transition: all 0.2s ease;
-  font-size: 13px; /* Adjusted to match menu-item text */
+  font-size: 13px;
 }
 
 .logout-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* CLOSE BUTTON */
 
-/* MEDIA QUERIES */
+
 @media screen and (min-width: 768px) {
   .sidebar.closed {
     transform: translateX(0);
     width: 70px;
   }
   
-  /* Hide sidebar text in closed state */
+ 
   .sidebar.closed .menu-item span,
   .sidebar.closed .brand-name {
     display: none;
   }
   
-  /* Center icons in closed state */
+
   .sidebar.closed .menu-icon {
     margin-right: 0;
-    margin-left: 7px; /* Center the icons */
+    margin-left: 7px;
   }
   
-  /* Adjust logo container in closed state */
+
   .sidebar.closed .logo-container {
     justify-content: center;
   }
@@ -161,7 +159,7 @@
     margin-right: 0;
   }
   
-  /* Adjust user info in closed state */
+ 
   .sidebar.closed {
     justify-content: center;
   }
@@ -170,7 +168,7 @@
     margin-right: 0;
   }
   
-  /* Center logout button in closed state */
+
   .sidebar.closed .logout-btn {
     display: flex;
     justify-content: center;
@@ -182,9 +180,9 @@
   }
 }
 
-/* For mobile devices */
+
 @media screen and (max-width: 767px) {
   .sidebar.closed {
-    transform: translateX(-100%); /* Hide completely on mobile when closed */
+    transform: translateX(-100%);
   }
 }

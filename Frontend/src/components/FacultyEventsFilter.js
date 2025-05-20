@@ -1,4 +1,4 @@
-// src/pages/facultyOverview/FacultyEventsFilter.js
+
 import React from 'react';
 
 const FacultyEventsFilter = ({ filters, onFilterChange }) => {

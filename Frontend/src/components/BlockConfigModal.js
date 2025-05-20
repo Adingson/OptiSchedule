@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import '../styles/CreateSchedule.css';
 
 const BlockConfigModal = ({ courses, onClose, onSubmit }) => {
-  // Helper function to convert number to ordinal string (e.g., 1 -> "1st", 2 -> "2nd", etc.)
+  
   const getOrdinal = (n) => {
     const s = ["th", "st", "nd", "rd"];
     const v = n % 100;
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   };
 
-  // Build initial configuration: keys like "BSIT_1" with block value empty.
+  
   const initialConfig = {};
   courses.forEach(course => {
     const key = `${course.program}_${course.yearLevel}`;

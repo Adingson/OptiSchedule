@@ -1,5 +1,4 @@
-/* SuccessModal.css */
-/* In your main.css or similar */
+
 @import './modalAnimations.css';
 
 .success-modal {
@@ -26,7 +25,7 @@
     position: relative;
   }
   
-  /* Override for error modal state */
+ 
   .error-modal .success-modal-content {
     border: 2px solid #D32F2F;
   }
@@ -38,11 +37,11 @@
   .success-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #1B5E20; /* Dark green */
+    color: #1B5E20; 
     margin-bottom: 10px;
   }
   
-  /* Override title color for errors */
+ 
   .error-modal .success-title {
     color: #B71C1C;
   }

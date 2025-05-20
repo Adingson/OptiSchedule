@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/CreateSchedule.css'; // Ensure your CSS includes the modal styles
+import '../styles/CreateSchedule.css'; 
 
 const EditCourseModal = ({ course, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({ ...course });

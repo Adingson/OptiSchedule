@@ -11,8 +11,8 @@ const FacultyEditModal = ({ faculty, onClose, onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onClose();                     // close modal immediately
-    onSave(faculty.id, formData);  // fire save in background
+    onClose();                     
+    onSave(faculty.id, formData); 
   };
 
   return (

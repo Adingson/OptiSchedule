@@ -2,13 +2,13 @@ import React from 'react';
 import "../styles/UnassignModal.css";
 
 const UnassignConfirmationModal = ({ groupEvents = [], onCancel, onConfirm }) => {
-  // Construct course info using title and course code.
+  
   const courseInfo =
     groupEvents.length > 0
       ? `${groupEvents[0].title || '-'} (${groupEvents[0].courseCode || '-'})`
       : '-';
 
-  // Construct additional group summary info: program, year, and block.
+  
   const program = groupEvents.length > 0 ? groupEvents[0].program || '' : '';
   const year = groupEvents.length > 0 && groupEvents[0].year ? `Year ${groupEvents[0].year}` : '';
   const block = groupEvents.length > 0 ? groupEvents[0].block || '' : '';

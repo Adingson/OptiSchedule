@@ -1,9 +1,9 @@
-// src/pages/facultyOverview/FacultyEventsTable.js
+
 import React from 'react';
 import noScheduleLogo from '../assets/noScheduleLogo.png';
 
 const FacultyEventsTable = ({ events, computeUnits, fetchError }) => {
-  // Check if events are empty or undefined, and display a no-schedule view if so.
+  
   if (!events || events.length === 0) {
     return (
       <div className="no-schedule-container">

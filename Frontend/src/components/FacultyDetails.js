@@ -1,4 +1,4 @@
-// src/components/FacultyDetails.js
+
 import React from 'react';
 import { calculateFacultyUnits } from '../utils/scheduleHelpers';
 

@@ -1,15 +1,13 @@
-/* Layout.css */
 
-/* Container that holds the header, sidebar, and main content */
 .layout-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  padding-top: 70px; /* push everything down below the 70px‑tall header */
+  padding-top: 70px; 
 }
 
-/* Layout Header */
+
 .layout-header {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
@@ -20,16 +18,15 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: fixed;
   top: 0;
-  left: 70px; /* default position with collapsed sidebar */
-  width: calc(100% - 70px); /* adjust width so header spans available space */
+  left: 70px; 
+  width: calc(100% - 70px); 
   z-index: 500;
-  height: 70px; /* Fixed height to match with sidebar logo container */
+  height: 70px; 
   transition: left 0.3s ease, width 0.3s ease;
 }
 
-/* Header shifted when sidebar expanded */
 .layout-header.header-shift {
-  left: 250px; /* expanded sidebar width */
+  left: 250px; 
   width: calc(100% - 200px);
 }
 
@@ -50,7 +47,7 @@
 .brand-name {
   font-weight: bold;
   font-size: 1.2em;
-  color: #2E7D32; /* brand color */
+  color: #2E7D32; 
 }
 
 .header-right {
@@ -58,22 +55,21 @@
   color: #333;
 }
 
-/* Main content area */
-/* Always leave room for the collapsed sidebar (70px). If sidebar is open, shift content to 220px */
+
 .layout-content {
   flex: 1;
-  padding: 20px; /* top padding is already handled by .layout-container */
+  padding: 20px; 
   margin-top: -25px;
-  margin-left: 40px; /* Matches the collapsed sidebar width */
+  margin-left: 40px; 
   margin-right: -10px;
   transition: margin-left 0.3s ease;
 }
 
 .content-shift {
-  margin-left: 220px; /* Matches the expanded sidebar width */
+  margin-left: 220px; 
 }
 
-/* Media queries for responsiveness */
+
 @media screen and (max-width: 768px) {
   .layout-content,
   .content-shift {

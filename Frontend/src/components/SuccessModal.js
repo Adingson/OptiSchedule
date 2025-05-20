@@ -1,4 +1,4 @@
-// src/components/SuccessModal.js
+
 import React from 'react';
 import '../styles/SuccessModal.css';
 
@@ -9,7 +9,7 @@ const SuccessModal = ({ message, onClose, type = "success" }) => {
       <div className="success-modal-content">
         <div className="success-logo">
           {isError ? (
-            // Error Icon: Red cross icon.
+            
             <svg
               width="60"
               height="60"
@@ -25,7 +25,7 @@ const SuccessModal = ({ message, onClose, type = "success" }) => {
               <line x1="9" y1="9" x2="15" y2="15" />
             </svg>
           ) : (
-            // Success Icon: Green check mark style.
+            
             <svg
               width="60"
               height="60"

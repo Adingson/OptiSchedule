@@ -19,7 +19,7 @@ const AddCourseModal = ({ onClose, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pass the new course data back to the parent component.
+    
     onSubmit(formData);
   };
 

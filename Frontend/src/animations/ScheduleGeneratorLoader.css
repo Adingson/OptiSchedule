@@ -53,16 +53,14 @@
     border-radius: 4px;
     position: relative;
     transform-origin: center;
-    transition: background-color 0.6s ease, transform 0.6s ease;  /* Smooth transition */
+    transition: background-color 0.6s ease, transform 0.6s ease;  
     animation: cell-pulse 2s infinite;
     animation-delay: calc(var(--index) * 0.05s);
   }
   
   .calendar-cell.highlight {
     background-color: #2e7d32;
-    transform: scale(1.05);  /* Slight scaling for emphasis */
-    /* Remove the cell-highlight animation if conflicting with transitions */
-    /* Alternatively, you can blend both if you like additional effects */
+    transform: scale(1.05);  
   }
   
   

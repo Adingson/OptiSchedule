@@ -8,7 +8,7 @@ const Layout = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const location = useLocation();
 
-  // Map route paths to header titles
+  
   const routeTitleMap = {
     '/create-schedule': 'Create Schedule',
     '/schedule-management': 'Schedule Management',
@@ -17,10 +17,10 @@ const Layout = () => {
     '/admin-settings': 'Admin Settings'
   };
 
-  // Determine the header title based on the current location
+  
   const headerTitle = routeTitleMap[location.pathname] || 'OptiSched';
 
-  // Track window resize
+  
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -32,7 +32,7 @@ const Layout = () => {
     };
   }, []);
 
-  // Collapse sidebar automatically on small screens
+  
   useEffect(() => {
     if (windowWidth <= 767) {
       setIsSidebarOpen(false);

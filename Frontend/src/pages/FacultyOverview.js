@@ -8,7 +8,7 @@ import {
 import { generateSchedule } from '../services/scheduleService';
 import {
   parsePeriod,
-  computeEventUnits // using imported version from scheduleHelpers.js
+  computeEventUnits 
 } from '../utils/scheduleHelpers';
 import FacultyDetails from '../components/FacultyDetails';
 import FacultyEventsFilter from '../components/FacultyEventsFilter';
@@ -20,9 +20,9 @@ import SuccessModal from '../components/SuccessModal';
 import ConfirmationModal from '../components/ConfirmationModal';
 import noFacultyLogo from '../assets/noFacultyLogo.png';
 import '../styles/FacultyOverview.css';
-import FacultyLoader from '../animations/FacultyLoader';  // Custom FacultyLoader component
+import FacultyLoader from '../animations/FacultyLoader';  
 
-// Helper: Convert a time string (e.g. "7:00 AM") into minutes.
+
 const toMinutes = timeStr => {
   const [time, meridiem] = timeStr.split(' ');
   let [hours, minutes] = time.split(':').map(Number);
@@ -31,7 +31,7 @@ const toMinutes = timeStr => {
   return hours * 60 + minutes;
 };
 
-// Helper: Convert minutes back into a time string.
+
 const fromMinutes = mins => {
   let hours = Math.floor(mins / 60);
   let minutes = mins % 60;
@@ -41,7 +41,7 @@ const fromMinutes = mins => {
   return `${hours}:${minutes.toString().padStart(2, '0')} ${meridiem}`;
 };
 
-// Merge consecutive time periods for events with identical details.
+
 const mergeConsecutiveEvents = events => {
   const eventsCopy = JSON.parse(JSON.stringify(events));
   eventsCopy.sort((a, b) => {
@@ -107,24 +107,24 @@ const FacultyOverviewContainer = () => {
     courseQuery: '',
   });
   const [error, setError] = useState('');
-  // Global loading reserved for schedule-related loading.
+  
   const [loading, setLoading] = useState(false);
-  // isFacultyLoading dedicated for faculty fetching.
+  
   const [isFacultyLoading, setIsFacultyLoading] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [facultyToEdit, setFacultyToEdit] = useState(null);
   const [scheduleError, setScheduleError] = useState(false);
-  // State for deletion confirmation modal.
+  
   const [showDeleteFacultyConfirmation, setShowDeleteFacultyConfirmation] = useState(false);
   const [facultyToDelete, setFacultyToDelete] = useState(null);
-  // Manage success/error feedback modal.
+  
   const [feedbackModal, setFeedbackModal] = useState(null);
 
   const storedScheduleName = localStorage.getItem('scheduleName') || 'Default Schedule';
   const scheduleName = `A.Y. ${storedScheduleName}`;
 
-  // Define day mapping and order for merging day abbreviations.
+ 
   const dayMapping = {
     "Monday": "M",
     "Tuesday": "T",
@@ -136,7 +136,7 @@ const FacultyOverviewContainer = () => {
   };
   const dayOrder = ["M", "T", "W", "Th", "F", "Sat", "Sun"];
 
-  // Fetch the faculty list using the dedicated faculty loading state.
+ 
   useEffect(() => {
     const fetchFaculty = async () => {
       setIsFacultyLoading(true);
@@ -157,7 +157,7 @@ const FacultyOverviewContainer = () => {
     fetchFaculty();
   }, []);
 
-  // Fetch schedule events.
+  
   useEffect(() => {
     const fetchSchedule = async () => {
       try {
@@ -178,7 +178,7 @@ const FacultyOverviewContainer = () => {
     fetchSchedule();
   }, []);
 
-  // Update faculty events when a faculty member is selected.
+  
   useEffect(() => {
     if (selectedFaculty) {
       const events = schedule.filter(e => e.faculty === selectedFaculty.name);
@@ -188,13 +188,13 @@ const FacultyOverviewContainer = () => {
     }
   }, [selectedFaculty, schedule]);
 
-  // Handle filter changes.
+  
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
-  // Filter events based on current filter settings.
+  
   const filteredEvents = facultyEvents.filter(event => {
     const { program, block, year, courseQuery } = filters;
     let matches = true;
@@ -210,14 +210,14 @@ const FacultyOverviewContainer = () => {
     return matches;
   });
 
-  // Sort filtered events by start time.
+  
   const sortedEvents = filteredEvents.slice().sort((a, b) => {
     const aStart = toMinutes(a.period.split(' - ')[0]);
     const bStart = toMinutes(b.period.split(' - ')[0]);
     return aStart - bStart;
   });
 
-  // Merge day abbreviations.
+  
   const mergedEventsMap = sortedEvents.reduce((acc, event) => {
     const key = `${event.courseCode}-${event.session}-${event.program}-${event.year}-${event.block}-${event.room}-${event.faculty}-${event.period}`;
     const dayAbbrev = dayMapping[event.day] || event.day;
@@ -236,10 +236,10 @@ const FacultyOverviewContainer = () => {
     return { ...event, day: sortedDayAbbrevs.join('') };
   });
 
-  // Merge consecutive events.
+  
   const finalMergedEvents = mergeConsecutiveEvents(mergedEvents);
 
-  // Handlers for faculty selection and modal actions.
+  
   const handleSelectFaculty = fac => {
     setSelectedFaculty(fac);
   };
@@ -262,7 +262,7 @@ const FacultyOverviewContainer = () => {
       const response = await addFaculty(facultyData);
       if (response.status === 'success') {
         setFacultyList(prev => [...prev, response.faculty]);
-        // Wait a moment so the loading animation is visible before closing.
+        
         await new Promise(resolve => setTimeout(resolve, 500));
         closeAddModal();
         setFeedbackModal({ message: "Faculty added successfully!", type: "success" });
@@ -296,7 +296,7 @@ const FacultyOverviewContainer = () => {
         if (selectedFaculty && selectedFaculty.id === facultyId) {
           setSelectedFaculty(response.faculty);
         }
-        // Wait a moment before closing the edit modal.
+        
         await new Promise(resolve => setTimeout(resolve, 500));
         closeEditModal();
         setFeedbackModal({ message: "Faculty updated successfully!", type: "success" });
@@ -311,7 +311,7 @@ const FacultyOverviewContainer = () => {
     }
   };
 
-  // Updated deletion handler using a confirmation modal.
+  
   const handleDeleteFaculty = facultyId => {
     setFacultyToDelete(facultyId);
     setShowDeleteFacultyConfirmation(true);
@@ -362,10 +362,10 @@ const FacultyOverviewContainer = () => {
       )}
 
       {selectedFaculty ? (
-        // Faculty Panel View when a faculty is selected.
+        
         <div className="faculty-panel">
           <div className="faculty-panel-header">
-            {/* Updated Back Button with custom logo and text */}
+            {}
             <button className="back-btn" onClick={handleBack} title="Back to Faculty List">
               <span className="back-logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -397,13 +397,13 @@ const FacultyOverviewContainer = () => {
             />
             <FacultyEventsTable
               events={finalMergedEvents}
-              computeUnits={computeEventUnits} // using imported version
+              computeUnits={computeEventUnits} 
               fetchError={scheduleError}
             />
           </div>
         </div>
       ) : (
-        // Initial Grid View: Display faculty cards in a grid.
+        
         facultyList.length === 0 ? (
           <div className="no-faculty-container">
             {isFacultyLoading ? (
